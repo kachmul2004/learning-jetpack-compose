@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BirthdayCard</string>
+    <string name="happy_birthday_text">Happy Birthday Muntu</string>
+    <string name="signature_text">From Kachmen</string>
+    <string name="home_screen_title">BirthdayCard</string>
+</resources>

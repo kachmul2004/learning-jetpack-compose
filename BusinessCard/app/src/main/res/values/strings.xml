@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="phone_number">+123456789</string>
+    <string name="share_handle">\@kachinga</string>
+    <string name="email_address">kachinga@gmail.com</string>
+    <string name="phone_number_content_description">Phone Number</string>
+    <string name="share_handle_content_description">Share Handle</string>
+    <string name="email_address_content_description">Email Address</string>
+    <string name="name">Kachinga Mulenga</string>
+    <string name="job_title">Legendary Android Developer</string>
+    <string name="logo_description">Logo</string>
+</resources>

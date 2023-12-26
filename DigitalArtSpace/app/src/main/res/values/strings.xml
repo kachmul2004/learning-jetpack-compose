@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Digital Art Space</string>
+    <string name="giraffe_image_title">Giraffe posing for a nice photoshoop in Africa</string>
+    <string name="giraffe_image_artist">By Kachinga (2020)</string>
+    <string name="meerkat_image_title">Meerkat</string>
+    <string name="meerkat_image_artist">By Mule (2021)</string>
+    <string name="peacock_image_title">Peacock</string>
+    <string name="peacock_image_artist">By Kachman (2022)</string>
+    <string name="puppy_image_title">Puppy</string>
+    <string name="puppy_image_artist">By KGM (2023)</string>
 </resources>

@@ -7,9 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,18 +26,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -51,12 +47,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DigitalArtSpaceTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    App()
-                }
+                App()
             }
         }
     }
@@ -72,10 +63,28 @@ fun App() {
         else -> R.drawable.puppy
     }
     val artworkDetails = when (currentImageResource) {
-        1 -> mapOf("title" to "Giraffe", "artist" to "By Kachinga (2020)")
-        2 -> mapOf("title" to "Meerkat", "artist" to "By Mule (2021)")
-        3 -> mapOf("title" to "Peacock", "artist" to "By Kachman (2022)")
-        else -> mapOf("title" to "Puppy", "artist" to "By KGM (2023)")
+        1 -> mapOf(
+            "title" to stringResource(R.string.giraffe_image_title),
+            "artist" to stringResource(R.string.giraffe_image_artist)
+        )
+
+        2 -> mapOf(
+            "title" to stringResource(R.string.meerkat_image_title), "artist" to stringResource(
+                R.string.meerkat_image_artist
+            )
+        )
+
+        3 -> mapOf(
+            "title" to stringResource(R.string.peacock_image_title), "artist" to stringResource(
+                R.string.peacock_image_artist
+            )
+        )
+
+        else -> mapOf(
+            "title" to stringResource(R.string.puppy_image_title), "artist" to stringResource(
+                R.string.puppy_image_artist
+            )
+        )
     }
     Column(
         Modifier
@@ -89,14 +98,14 @@ fun App() {
                 .height(500.dp),
             image = artworkResource,
         )
-        Spacer(modifier = Modifier.height(60.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         ImageDescription(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentSize(Alignment.Center),
             artworkDetails = artworkDetails
         )
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         Row(
             modifier = Modifier
 
@@ -127,7 +136,6 @@ fun App() {
 fun ArtWork(
     modifier: Modifier = Modifier,
     @DrawableRes image: Int,
-
     ) {
     Column(
         modifier = modifier
@@ -135,16 +143,14 @@ fun ArtWork(
         Surface(
             shadowElevation = 10.dp,
             border = BorderStroke(1.dp, Color.LightGray),
-
             modifier = Modifier
-                .padding(20.dp)
-                .fillMaxSize()
+                .align(Alignment.CenterHorizontally)
         ) {
             Image(
                 modifier = Modifier
-                    .padding(30.dp),
+                    .padding(20.dp),
                 painter = painterResource(id = image),
-                contentDescription = "Artwork"
+                contentDescription = null
             )
         }
     }
@@ -156,16 +162,18 @@ fun ImageDescription(modifier: Modifier = Modifier, artworkDetails: Map<String, 
     val title = artworkDetails["title"]!!
     val artist = artworkDetails["artist"]!!
     Column(
-        modifier = modifier.background(Color(0xFFECEBF4)).width(300.dp).padding(20.dp),
+        modifier = modifier
+            .background(Color(0xFFECEBF4))
+            .width(300.dp)
+            .padding(20.dp),
         verticalArrangement = Arrangement.Center
 
     ) {
         Text(
             text = title,
-            fontSize = 30.sp,
+            fontSize = 25.sp,
             fontWeight = FontWeight.ExtraLight
         )
-
         Text(
             text = AnnotatedString(
                 text = artist,
